@@ -1,4 +1,4 @@
-# Assignment 1: write a programming to opening the file, analyzing and writing the result
+# Assignment 1: write a program to opening the file, analyzing and writing the result
 
 # import packages
 import pandas as pd
