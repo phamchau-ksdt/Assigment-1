@@ -6,7 +6,7 @@ import os
 import statistics
 
 
-# Task1: write a programming that lets the user type in the name of a file
+# Task1: write a program that lets the user type in the name of a file
 print("\n*** OPENING FILE ***")
 
 # to know the path and file names of the folder that class files are inside
