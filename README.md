@@ -6,7 +6,7 @@ Write a program to opening the file, analyzing and recording the result
 * Task-2: Analyze the data contained within the opened file 
 * Task-3: Grading the exams through the analysed data
 * Task-4: Recording the result file
-* Task-5: Only using **pandas** for _task 1_ and _task 4_
+* Task-5: Only using **pandas** for _task 1_ to _task 4_
 
 ## The sequence of execution
 1. Open requested external text files with exception-handling
