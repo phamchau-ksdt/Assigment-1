@@ -47,6 +47,10 @@ with open(class_name, "r") as op:
     for i in range(line_count):
         line_single = line[i].split(",")
         line_single = [item.replace("\n", "") for item in line_single] # xoá ký tự xuống dòng "\n" trong list line_single
+        # the second way: line_single = line[i].strip() # delete "\n" at the end on the right side
+        # line_single = line_single.split(",")
+        # the third way: line_single = line[i].replace("\n", "")
+        # line_single = line_single.split(",")
         if len(line_single) != 26:
             count_invalid += 1
             print("Invalid data of line: does not contain exactly 26 values \n" + line[i])
