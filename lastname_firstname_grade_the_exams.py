@@ -36,43 +36,44 @@ print("\n*** ANALYZING ***")
 
 # Analyzing the data
 with open(class_name, "r") as op:
-    lines = op.readlines()
+    line = op.readlines()
     op.seek(0) # move the mouse pointer to the first line to accomplish the lines_count command
-    lines_count = sum(1 for line in op)
+    line_count = sum(1 for line in op)
     count_valid = 0
     count_invalid = 0
     student_id = []
     student_score = []
     result = {}
-    for i in range(lines_count):
-        lines_single = lines[i].split(",")
-        if len(lines_single) != 26:
+    for i in range(line_count):
+        line_single = line[i].split(",")
+        line_single = [item.replace("\n", "") for item in line_single] # xoá ký tự xuống dòng "\n" trong list line_single
+        if len(line_single) != 26:
             count_invalid += 1
-            print("Invalid data of line: does not contain exactly 26 values \n" + lines[i])
-        elif "N" not in lines_single[0] or len(lines_single[0]) != 9 or lines_single[0][1:9].isnumeric() == False:
+            print("Invalid data of line: does not contain exactly 26 values \n" + line[i])
+        elif "N" not in line_single[0] or len(line_single[0]) != 9 or line_single[0][1:9].isnumeric() == False:
             count_invalid += 1
-            print("Invalid data of line: N# is invalid \n" + lines[i])
+            print("Invalid data of line: N# is invalid \n" + line[i])
         else:
             count_valid += 1
             answer_key = "B,A,D,D,C,B,D,A,C,C,D,B,A,B,A,C,B,D,A,C,A,A,B,D,D"
             answer_key = answer_key.split(",")
             score = 0
             for j in range(len(answer_key)):
-                if lines_single[j + 1] == answer_key[j]:
+                if line_single[j + 1] == answer_key[j]:
                     score += 4
-                elif lines_single[j + 1] == "":
+                elif line_single[j + 1] == "":
                     score += 0
                 else:
                     score -= 1
             student_score.append(score)
-            result[lines_single[0]] = score
+            result[line_single[0]] = score
 
 if count_invalid == 0:
     print("No errors found")
 
 # report the result
 print("\n*** REPORT ***")
-print(f"The total of lines in {class_name} is: " + str(lines_count))
+print(f"The total of lines in {class_name} is: " + str(line_count))
 print("Total valid lines of data: " + str(count_valid))
 print("Total invalid lines of data: " + str(count_invalid))
 
